@@ -1,11 +1,16 @@
 module Captcha
-  def self.solve(input : String)
+  def self.solve(input : String, shift = 1)
     characters = input.split("")
     numbers = characters.map { |c| c.to_i }
-    pairs = numbers.dup
-    first_number = pairs.shift
-    pairs << first_number
-    number_pairs = numbers.zip(pairs)
-    number_pairs.reduce(0) { |acc, pair| pair[0] == pair[1] ? acc + pair[0] : acc }
+    length = numbers.size
+    acc = 0
+    numbers.each_with_index do |number, index|
+      acc += number if number == numbers[(index+shift).modulo(length)]
+    end
+    return acc
+  end
+
+  def self.solve_for_halfway(input : String)
+    solve(input, input.size/2)
   end
 end
