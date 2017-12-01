@@ -1,13 +1,12 @@
 module Captcha
-  def self.solve(input : String, shift = 1)
-    characters = input.split("")
-    numbers = characters.map { |c| c.to_i }
-    length = numbers.size
-    acc = 0
-    numbers.each_with_index do |number, index|
-      acc += number if number == numbers[(index+shift).modulo(length)]
+  def self.solve(input : String, offset = 1)
+    numbers = input.split("").map { |c| c.to_i }
+    size = numbers.size
+    acc = numbers.reduce({0, 0}) do |acc, number|
+      total = number == numbers[(acc[1]+offset).modulo(size)] ? acc[0] + number : acc[0]
+      {total, acc[1]+1}
     end
-    return acc
+    return acc[0]
   end
 
   def self.solve_for_halfway(input : String)
