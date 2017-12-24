@@ -1,6 +1,7 @@
 require "./01-captcha/captcha"
 require "./02-checksum/checksum"
 require "./04-entropy/entropy"
+require "./05-trampolines/trampolines"
 
 puts "Day 1"
 puts "====="
@@ -19,3 +20,8 @@ puts "====="
 input = File.read_lines("./04-entropy/input.txt")
 puts "Correct passphrases: #{Passphrase.count_valid_phrases(input)}"
 puts "Correct anagram passphrases: #{AnagramPassphrase.count_valid_phrases(input)}"
+
+puts "Day 5"
+puts "====="
+input = File.read("./05-trampolines/input.txt")
+puts "Number of jumps: #{Offsets.jumps_until_out(input)}"
