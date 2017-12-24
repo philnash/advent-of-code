@@ -18,3 +18,4 @@ puts "Day 4"
 puts "====="
 input = File.read_lines("./04-entropy/input.txt")
 puts "Correct passphrases: #{Passphrase.count_valid_phrases(input)}"
+puts "Correct anagram passphrases: #{AnagramPassphrase.count_valid_phrases(input)}"
