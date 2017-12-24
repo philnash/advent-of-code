@@ -108,3 +108,14 @@ describe "Offsets" do
     Offsets.jumps_until_out(input).should eq(5)
   end
 end
+
+describe "Decreasing Offsets" do
+  it "should count the jumps until escape" do
+    Offsets.jumps_until_out(input, SometimesDecreasingPointerUpdater.new).should eq(10)
+  end
+
+  it "should leave the list as 2 3 2 3 -1 after 10 jumps" do
+    offsets = Offsets.new(input, SometimesDecreasingPointerUpdater.new).jump!.jump!.jump!.jump!.jump!.jump!.jump!.jump!.jump!.jump!
+    offsets.list.should eq([2, 3, 2, 3, -1])
+  end
+end

@@ -25,3 +25,4 @@ puts "Day 5"
 puts "====="
 input = File.read("./05-trampolines/input.txt")
 puts "Number of jumps: #{Offsets.jumps_until_out(input)}"
+puts "Number of stranger jumps: #{Offsets.jumps_until_out(input, SometimesDecreasingPointerUpdater.new)}"
