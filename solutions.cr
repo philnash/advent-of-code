@@ -2,6 +2,7 @@ require "./01-captcha/captcha"
 require "./02-checksum/checksum"
 require "./04-entropy/entropy"
 require "./05-trampolines/trampolines"
+require "./06-memory/memory"
 
 puts "Day 1"
 puts "====="
@@ -26,3 +27,8 @@ puts "====="
 input = File.read("./05-trampolines/input.txt")
 puts "Number of jumps: #{Offsets.jumps_until_out(input)}"
 puts "Number of stranger jumps: #{Offsets.jumps_until_out(input, SometimesDecreasingPointerUpdater.new)}"
+
+puts "Day 6"
+puts "====="
+input = File.read("./06-memory/input.txt").strip.split(/\s+/).map { |word| word.to_i }
+puts "Number of reallocations: #{Memory.reallocations_until_optimal(input)}"
