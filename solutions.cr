@@ -31,4 +31,7 @@ puts "Number of stranger jumps: #{Offsets.jumps_until_out(input, SometimesDecrea
 puts "Day 6"
 puts "====="
 input = File.read("./06-memory/input.txt").strip.split(/\s+/).map { |word| word.to_i }
-puts "Number of reallocations: #{Memory.reallocations_until_optimal(input)}"
+memory = Memory.new(input)
+memory.reallocate_until_optimal!
+puts "Number of reallocations: #{memory.counter}"
+puts "Length of reallocation loop: #{memory.reallocation_loop}"

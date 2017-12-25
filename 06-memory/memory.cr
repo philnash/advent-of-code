@@ -7,6 +7,8 @@ class Memory
     @states << @state
     @counter = 0
     @finished = false
+    @state_counter = Hash(Array(Int32), Int32).new
+    @state_counter[@state] = 0
   end
 
   def finished?
@@ -25,18 +27,25 @@ class Memory
         state[index.modulo(@state.size)] += 1
         highest_value -= 1
       end
-      @finished = true if @states.includes?(state)
+      if @states.includes?(state)
+        @finished = true
+      else
+        @state_counter[state] = @counter
+      end
       @states << state
       @state = state
     end
     return self
   end
 
-  def self.reallocations_until_optimal(input)
-    memory = self.new(input)
-    while !memory.finished?
-      memory.reallocate!
+  def reallocation_loop
+    return unless finished?
+    @counter - @state_counter[@state]
+  end
+
+  def reallocate_until_optimal!
+    while !finished?
+      reallocate!
     end
-    memory.counter
   end
 end

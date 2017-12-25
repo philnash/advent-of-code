@@ -34,6 +34,14 @@ describe "Memory" do
   end
 
   it "should calculate number of reallocations to optimum" do
-    Memory.reallocations_until_optimal([0, 2, 7, 0]).should eq(5)
+    memory = Memory.new([0, 2, 7, 0])
+    memory.reallocate_until_optimal!
+    memory.counter.should eq(5)
+  end
+
+  it "should count the loop length of the optimum reallocation" do
+    memory = Memory.new([0, 2, 7, 0])
+    memory.reallocate_until_optimal!
+    memory.reallocation_loop.should eq(4)
   end
 end
