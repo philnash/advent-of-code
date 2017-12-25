@@ -51,24 +51,7 @@ class ProgramListing
   end
 
   def bottom_program
-    @listing.find { |name, program| !program.has_parent? }
+    tuple = @listing.find { |name, program| !program.has_parent? }
+    return tuple[1] if tuple
   end
 end
-
-input = "pbga (66)
-xhth (57)
-ebii (61)
-havc (66)
-ktlj (57)
-fwft (72) -> ktlj, cntj, xhth
-qoyq (66)
-padx (45) -> pbga, havc, qoyq
-tknk (41) -> ugml, padx, fwft
-jptl (61)
-ugml (68) -> gyxo, ebii, jptl
-gyxo (61)
-cntj (57)"
-listing = ProgramListing.new
-listing.parse(input)
-program = listing.bottom_program
-puts program[0] if program
