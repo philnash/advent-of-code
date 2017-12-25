@@ -3,6 +3,7 @@ require "./02-checksum/checksum"
 require "./04-entropy/entropy"
 require "./05-trampolines/trampolines"
 require "./06-memory/memory"
+require "./07-tower/tower"
 
 puts "Day 1"
 puts "====="
@@ -35,3 +36,11 @@ memory = Memory.new(input)
 memory.reallocate_until_optimal!
 puts "Number of reallocations: #{memory.counter}"
 puts "Length of reallocation loop: #{memory.reallocation_loop}"
+
+puts "Day 7"
+puts "====="
+input = File.read("./07-tower/input.txt").strip
+listing = ProgramListing.new
+listing.parse(input)
+program = listing.bottom_program
+puts "Bottom program is #{program[0]}" if program
