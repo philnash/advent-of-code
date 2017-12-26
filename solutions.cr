@@ -43,4 +43,7 @@ input = File.read("./07-tower/input.txt").strip
 listing = ProgramListing.new
 listing.parse(input)
 program = listing.bottom_program
-puts "Bottom program is #{program.name}" if program
+if program
+  puts "Bottom program is #{program.name}"
+  puts "Balancing weight is #{listing.balance(program)}"
+end

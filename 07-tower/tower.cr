@@ -1,6 +1,6 @@
 class Program
   getter name : String
-  property weight : Int32?
+  setter weight : Int32?
   property children : Array(Program)
   property parent : Program?
 
@@ -10,6 +10,20 @@ class Program
 
   def has_parent?
     !parent.nil?
+  end
+
+  def weight
+    @weight || 0
+  end
+
+  def total_weight
+    if children.empty?
+      total_weight = weight
+    else
+      child_weights = children.map { |c| c.total_weight.as(Int32) }
+      total_weight = weight + child_weights.sum
+    end
+    total_weight
   end
 end
 
@@ -50,8 +64,25 @@ class ProgramListing
     program
   end
 
-  def bottom_program
+  def bottom_program : Program?
     tuple = @listing.find { |name, program| !program.has_parent? }
     return tuple[1] if tuple
+  end
+
+  def balance(program : Program) : Int32
+    child_weights = program.children.map { |c| {c, c.total_weight} }
+    groups = child_weights.group_by { |c| c[1] }
+    if groups.keys.size == 1
+      return 0
+    else
+      return groups.map do |k, v|
+        if v.size > 1
+          0
+        else
+          b = balance(v.first[0])
+          b == 0 ? v.first[0].weight - (groups.keys[0] - groups.keys[1]).abs : b
+        end
+      end.sum
+    end
   end
 end
