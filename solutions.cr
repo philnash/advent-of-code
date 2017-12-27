@@ -4,6 +4,7 @@ require "./04-entropy/entropy"
 require "./05-trampolines/trampolines"
 require "./06-memory/memory"
 require "./07-tower/tower"
+require "./08-register/register"
 
 puts "Day 1"
 puts "====="
@@ -47,3 +48,11 @@ if program
   puts "Bottom program is #{program.name}"
   puts "Balancing weight is #{listing.balance(program)}"
 end
+
+puts "Day 8"
+puts "====="
+input = File.read("./08-register/input.txt").strip
+register = Register.new
+register.process_instructions(input)
+puts "Register max value: #{register.max_register}"
+puts "Register max historical value: #{register.max_historical_value}"
