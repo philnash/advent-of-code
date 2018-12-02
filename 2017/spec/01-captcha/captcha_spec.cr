@@ -1,5 +1,5 @@
 require "spec"
-require "../01-captcha/captcha"
+require "../../01-captcha/captcha"
 
 describe "Captcha" do
   describe "#solve" do

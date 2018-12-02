@@ -1,5 +1,5 @@
 require "spec"
-require "../03-spiral/spiral"
+require "../../03-spiral/spiral"
 
 describe "Spiral" do
   describe "#distance" do

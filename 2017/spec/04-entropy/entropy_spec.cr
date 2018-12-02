@@ -1,5 +1,5 @@
 require "spec"
-require "../04-entropy/entropy"
+require "../../04-entropy/entropy"
 
 describe "Passphrase" do
   describe "is_valid?" do

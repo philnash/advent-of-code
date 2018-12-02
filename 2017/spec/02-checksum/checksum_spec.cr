@@ -1,5 +1,5 @@
 require "spec"
-require "../02-checksum/checksum"
+require "../../02-checksum/checksum"
 
 describe "Checksum" do
   describe "#row_value" do

@@ -1,2 +1,2 @@
 require "spec"
-require "../07-tower/tower"
+require "../../07-tower/tower"

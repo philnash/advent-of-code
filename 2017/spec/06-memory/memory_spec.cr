@@ -1,5 +1,5 @@
 require "spec"
-require "../06-memory/memory"
+require "../../06-memory/memory"
 
 describe "Memory" do
   it "initialises with 0, 2, 7, 0" do

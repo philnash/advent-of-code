@@ -1,5 +1,5 @@
 require "spec"
-require "../05-trampolines/trampolines"
+require "../../05-trampolines/trampolines"
 
 input = "0\n3\n0\n1\n-3"
 
