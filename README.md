@@ -1,19 +1,8 @@
-# Advent of Code 2017
+# Advent of Code
 
-Solutions for the [Advent of Code 2017](http://adventofcode.com/2017) written in [Crystal](https://crystal-lang.org/).
+These are my solutions for the [Advent of Code](https://adventofcode.com/).
 
-## Running the code
+## Years
 
-[Install Crystal](https://crystal-lang.org/docs/installation/) and clone this repo.
-
-To get the solutions, run:
-
-```bash
-crystal run solutions.cr
-```
-
-To run the tests, run:
-
-```bash
-crystal spec
-```
+* [2018](./2018)
+* [2017](./2017)
