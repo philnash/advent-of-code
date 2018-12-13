@@ -1,5 +1,6 @@
 require "./01/frequency"
 require "./02/checksum.cr"
+require "./03/claim.cr"
 
 puts "--- Day 1: Chronal Calibration ---"
 input = File.read_lines("./01/input.txt")
@@ -14,3 +15,13 @@ input = File.read_lines("./02/input.txt")
 collection = FabricBoxCollection.new(input)
 puts "Checksum: #{collection.checksum}"
 puts "Common letters: #{collection.find_close_id}"
+
+puts "--- Day 3: No Matter How You Slice It ---"
+input = File.read_lines("./03/input.txt")
+collection = ClaimCollection.new
+input.each do |claim_text|
+  claim = Claim.parse(claim_text)
+  collection.add(claim) if claim
+end
+puts "Duplicates: #{collection.duplicate_square_inches.size}"
+puts "Intact Claim: #{collection.intact_claims.first.id}"
