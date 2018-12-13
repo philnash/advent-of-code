@@ -2,6 +2,7 @@ require "./01/frequency"
 require "./02/checksum.cr"
 require "./03/claim.cr"
 require "./04/guard.cr"
+require "./05/polymer.cr"
 
 puts "--- Day 1: Chronal Calibration ---"
 input = File.read_lines("./01/input.txt")
@@ -36,3 +37,9 @@ guard = guards.guards.sort_by { |guard| guard.minutes_asleep }.last
 puts "Sleepiest guard: #{guard.id}. Sleepiest minute: #{guard.max_sleepy_minute[0]}."
 guard = guards.guards.sort_by { |guard| guard.max_sleepy_minute[1] }.last
 puts "Sleepiest guard: #{guard.id}. Sleepiest minute: #{guard.max_sleepy_minute[0]}."
+
+puts "--- Day 5: Alchemical Reduction ---"
+input = File.read("./05/input.txt")
+result = Polymer.react(input)
+puts "Length of polymer: #{result.size}"
+puts "Best length after removing a unit type: #{Polymer.find_best(input).size}"
