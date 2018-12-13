@@ -1,6 +1,7 @@
 require "./01/frequency"
 require "./02/checksum.cr"
 require "./03/claim.cr"
+require "./04/guard.cr"
 
 puts "--- Day 1: Chronal Calibration ---"
 input = File.read_lines("./01/input.txt")
@@ -25,3 +26,13 @@ input.each do |claim_text|
 end
 puts "Duplicates: #{collection.duplicate_square_inches.size}"
 puts "Intact Claim: #{collection.intact_claims.first.id}"
+
+puts "--- Day 4: Repose Record ---"
+input = File.read_lines("./04/input.txt")
+guard_records = GuardRecord.parse_list(input)
+guards = Guards.new
+guards.create_from_guard_records(guard_records)
+guard = guards.guards.sort_by { |guard| guard.minutes_asleep }.last
+puts "Sleepiest guard: #{guard.id}. Sleepiest minute: #{guard.max_sleepy_minute[0]}."
+guard = guards.guards.sort_by { |guard| guard.max_sleepy_minute[1] }.last
+puts "Sleepiest guard: #{guard.id}. Sleepiest minute: #{guard.max_sleepy_minute[0]}."
