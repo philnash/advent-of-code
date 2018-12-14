@@ -6,6 +6,8 @@ require "./05/polymer.cr"
 require "./06/coordinates.cr"
 require "./07/step.cr"
 
+require "./14/recipe.cr"
+
 puts "--- Day 1: Chronal Calibration ---"
 input = File.read_lines("./01/input.txt")
 device = Device.new
@@ -60,3 +62,10 @@ puts "The order of building is: #{Step.build}"
 Step.reset
 Step.parse_lines(input, 60)
 puts "The time for the parallel build is: #{Step.build_in_parallel(5)}"
+
+puts "\nCome back to the other days\n\n"
+
+puts "--- Day 14: Chocolate Charts ---"
+input = File.read("./14/input.txt")
+puts "The next 10 scores after #{input} are: #{Recipe.next_ten(input)}"
+puts "The position for the pattern #{input} is #{Recipe.how_many_to_score("209231")}"
