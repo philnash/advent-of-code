@@ -3,6 +3,7 @@ require "./02/checksum.cr"
 require "./03/claim.cr"
 require "./04/guard.cr"
 require "./05/polymer.cr"
+require "./06/coordinates.cr"
 
 puts "--- Day 1: Chronal Calibration ---"
 input = File.read_lines("./01/input.txt")
@@ -43,3 +44,10 @@ input = File.read("./05/input.txt")
 result = Polymer.react(input)
 puts "Length of polymer: #{result.size}"
 puts "Best length after removing a unit type: #{Polymer.find_best(input).size}"
+
+puts "--- Day 6: Chronal Coordinates ---"
+input = File.read_lines("./06/input.txt")
+coordinates = input.map { |line| line.split(/,\s+/).map { |string| string.to_i }}.map { |(x,y)| Coordinate.new(x,y) }
+grid = Grid.new(coordinates)
+puts "Greatest finite area is: #{grid.greatest_finite_area} in size"
+puts "Region within 10000 is: #{grid.region_within(10000)}"
