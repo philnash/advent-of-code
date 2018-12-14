@@ -4,6 +4,7 @@ require "./03/claim.cr"
 require "./04/guard.cr"
 require "./05/polymer.cr"
 require "./06/coordinates.cr"
+require "./07/step.cr"
 
 puts "--- Day 1: Chronal Calibration ---"
 input = File.read_lines("./01/input.txt")
@@ -51,3 +52,11 @@ coordinates = input.map { |line| line.split(/,\s+/).map { |string| string.to_i }
 grid = Grid.new(coordinates)
 puts "Greatest finite area is: #{grid.greatest_finite_area} in size"
 puts "Region within 10000 is: #{grid.region_within(10000)}"
+
+puts "--- Day 7: The Sum of Its Parts ---"
+input = File.read_lines("./07/input.txt")
+Step.parse_lines(input)
+puts "The order of building is: #{Step.build}"
+Step.reset
+Step.parse_lines(input, 60)
+puts "The time for the parallel build is: #{Step.build_in_parallel(5)}"
