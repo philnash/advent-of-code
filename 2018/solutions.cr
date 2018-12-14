@@ -6,6 +6,7 @@ require "./05/polymer.cr"
 require "./06/coordinates.cr"
 require "./07/step.cr"
 require "./08/tree.cr"
+require "./09/marbles.cr"
 
 require "./14/recipe.cr"
 
@@ -69,6 +70,12 @@ input = File.read("./08/input.txt")
 index, node = Tree.parse(input)
 puts "The total metadata for the nodes is: #{node.metadata_total}"
 puts "The total value for the nodes is: #{node.value}"
+
+puts "--- Day 9: Marble Mania ---"
+game = Game.new(71940.to_i64, 465.to_i64)
+puts "The high score is: #{game.play}"
+game2 = Game.new((71940*100).to_i64, 465.to_i64)
+puts "The high score is: #{game2.play}"
 
 puts "\nCome back to the other days\n\n"
 
