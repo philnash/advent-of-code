@@ -1,6 +1,6 @@
 class Game
   getter last_value : Int64
-  getter num_players : Int64
+  getter num_players : Int32
   getter current_marble : Marble
   getter players : Array(Player)
 
