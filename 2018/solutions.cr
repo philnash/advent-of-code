@@ -8,6 +8,7 @@ require "./07/step.cr"
 require "./08/tree.cr"
 require "./09/marbles.cr"
 require "./10/messages.cr"
+require "./11/fuel.cr"
 
 require "./14/recipe.cr"
 
@@ -153,13 +154,18 @@ require "./14/recipe.cr"
 # game2 = Game.new((71940*100).to_i64, 465)
 # puts "The high score is: #{game2.play}"
 
-puts "--- Day 10: The Stars Align ---"
-input = File.read_lines("./10/input.txt")
-points = input.map { |line| Point.parse(line) }
-sky = Sky.new(points)
-puts "Width: #{sky.max_x - sky.min_x}. Height: #{sky.max_y - sky.min_y}"
-10159.times { sky.tick }
-puts sky.draw
+# puts "--- Day 10: The Stars Align ---"
+# input = File.read_lines("./10/input.txt")
+# points = input.map { |line| Point.parse(line) }
+# sky = Sky.new(points)
+# puts "Width: #{sky.max_x - sky.min_x}. Height: #{sky.max_y - sky.min_y}"
+# 10159.times { sky.tick }
+# puts sky.draw
+
+# puts "--- Day 11: Chronal Charge ---"
+# p1 = PowerGrid.new(8561)
+# puts "Highest powered subgrid is at point: #{p1.get_highest_subgrid(3)[0]}"
+# puts p1.get_highest_subgrid_and_size
 
 
 # puts "\nCome back to the other days\n\n"
