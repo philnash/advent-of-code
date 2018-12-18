@@ -12,6 +12,8 @@ require "./11/fuel.cr"
 
 require "./14/recipe.cr"
 
+require "./18/lumber.cr"
+
 # puts "--- Day 1: Chronal Calibration ---"
 # input = File.read_lines("./01/input.txt")
 # device = Device.new
@@ -174,3 +176,13 @@ require "./14/recipe.cr"
 # input = File.read("./14/input.txt")
 # puts "The next 10 scores after #{input} are: #{Recipe.next_ten(input)}"
 # puts "The position for the pattern #{input} is #{Recipe.how_many_to_score(input)}"
+
+
+puts "--- Day 18: Settlers of The North Pole ---"
+input = File.read("./18/input.txt")
+landscape = Landscape.parse(input)
+landscape = landscape.tick(10)
+puts "The total resource value after 10 minutes is: #{landscape.total}"
+landscape = Landscape.parse(input)
+landscape = landscape.tick(1_000_000_000)
+puts "The total resource value after 1000000000 minutes is: #{landscape.total}"
