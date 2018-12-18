@@ -37,7 +37,7 @@ describe Landscape do
     ||||||||||
     ....||..|.
     LANDSCAPE
-    landscape.not_nil!.draw.should eq(expected)
+    landscape.draw.should eq(expected)
   end
 
   it "moves 10 ticks" do
@@ -55,7 +55,7 @@ describe Landscape do
     ||||#|||||
     ||||||||||
     LANDSCAPE
-    landscape.not_nil!.draw.should eq(expected)
-    landscape.not_nil!.total.should eq(1147)
+    landscape.draw.should eq(expected)
+    landscape.total.should eq(1147)
   end
 end
