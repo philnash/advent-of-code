@@ -15,6 +15,8 @@ require "./14/recipe.cr"
 
 require "./18/lumber.cr"
 
+require "./22/maze.cr"
+
 # puts "--- Day 1: Chronal Calibration ---"
 # input = File.read_lines("./01/input.txt")
 # device = Device.new
@@ -170,18 +172,18 @@ require "./18/lumber.cr"
 # puts "Highest powered subgrid is at point: #{p1.get_highest_subgrid(3)[0]}"
 # puts p1.get_highest_subgrid_and_size
 
-puts "--- Day 12: Subterranean Sustainability ---"
-input = File.read("./12/input.txt")
-plants = Plants.parse(input)
-if plants
-  plants.tick(20)
-  puts "The sum of plant pots is: #{plants.count}"
-  plants = Plants.parse(input)
-  if plants
-    plants.tick(50000000000)
-    puts "The sum of plant pots is: #{plants.count}"
-  end
-end
+# puts "--- Day 12: Subterranean Sustainability ---"
+# input = File.read("./12/input.txt")
+# plants = Plants.parse(input)
+# if plants
+#   plants.tick(20)
+#   puts "The sum of plant pots is: #{plants.count}"
+#   plants = Plants.parse(input)
+#   if plants
+#     plants.tick(50000000000)
+#     puts "The sum of plant pots is: #{plants.count}"
+#   end
+# end
 
 # puts "\nCome back to the other days\n\n"
 
@@ -198,3 +200,12 @@ end
 # landscape = Landscape.parse(input)
 # landscape = landscape.tick(1_000_000_000)
 # puts "The total resource value after 1000000000 minutes is: #{landscape.total}"
+
+puts "--- Day 22: Mode Maze ---"
+depth = 5355
+target = {14,796}
+maze = Maze.new(depth, target)
+puts "Risk: #{maze.risk}"
+start = SearchNode.new(0, 0, "torch")
+target = SearchNode.new(14, 796, "torch")
+puts "Total distance: #{MazeSearch.a_star(start, target, maze)}"
