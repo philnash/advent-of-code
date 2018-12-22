@@ -9,6 +9,7 @@ require "./08/tree.cr"
 require "./09/marbles.cr"
 require "./10/messages.cr"
 require "./11/fuel.cr"
+require "./12/plants.cr"
 
 require "./14/recipe.cr"
 
@@ -169,6 +170,18 @@ require "./18/lumber.cr"
 # puts "Highest powered subgrid is at point: #{p1.get_highest_subgrid(3)[0]}"
 # puts p1.get_highest_subgrid_and_size
 
+puts "--- Day 12: Subterranean Sustainability ---"
+input = File.read("./12/input.txt")
+plants = Plants.parse(input)
+if plants
+  plants.tick(20)
+  puts "The sum of plant pots is: #{plants.count}"
+  plants = Plants.parse(input)
+  if plants
+    plants.tick(50000000000)
+    puts "The sum of plant pots is: #{plants.count}"
+  end
+end
 
 # puts "\nCome back to the other days\n\n"
 
@@ -177,12 +190,11 @@ require "./18/lumber.cr"
 # puts "The next 10 scores after #{input} are: #{Recipe.next_ten(input)}"
 # puts "The position for the pattern #{input} is #{Recipe.how_many_to_score(input)}"
 
-
-puts "--- Day 18: Settlers of The North Pole ---"
-input = File.read("./18/input.txt")
-landscape = Landscape.parse(input)
-landscape = landscape.tick(10)
-puts "The total resource value after 10 minutes is: #{landscape.total}"
-landscape = Landscape.parse(input)
-landscape = landscape.tick(1_000_000_000)
-puts "The total resource value after 1000000000 minutes is: #{landscape.total}"
+# puts "--- Day 18: Settlers of The North Pole ---"
+# input = File.read("./18/input.txt")
+# landscape = Landscape.parse(input)
+# landscape = landscape.tick(10)
+# puts "The total resource value after 10 minutes is: #{landscape.total}"
+# landscape = Landscape.parse(input)
+# landscape = landscape.tick(1_000_000_000)
+# puts "The total resource value after 1000000000 minutes is: #{landscape.total}"

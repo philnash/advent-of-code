@@ -46,7 +46,6 @@ class LandscapeCache
   def [](landscape : Landscape)
     @hash[landscape.to_s]
   end
-
 end
 
 struct Landscape
