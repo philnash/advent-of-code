@@ -10,7 +10,7 @@ require "./09/marbles.cr"
 require "./10/messages.cr"
 require "./11/fuel.cr"
 require "./12/plants.cr"
-
+require "./13/cart.cr"
 require "./14/recipe.cr"
 
 require "./18/lumber.cr"
@@ -185,7 +185,13 @@ require "./22/maze.cr"
 #   end
 # end
 
-# puts "\nCome back to the other days\n\n"
+puts "--- Day 13: Mine Cart Madness ---"
+input = File.read("./13/input.txt")
+track = Track.parse(input)
+track.tick
+last_cart = track.carts.first
+puts track.carts.inspect
+puts "Last cart: #{last_cart.x},#{last_cart.y}"
 
 # puts "--- Day 14: Chocolate Charts ---"
 # input = File.read("./14/input.txt")
@@ -201,11 +207,11 @@ require "./22/maze.cr"
 # landscape = landscape.tick(1_000_000_000)
 # puts "The total resource value after 1000000000 minutes is: #{landscape.total}"
 
-puts "--- Day 22: Mode Maze ---"
-depth = 5355
-target = {14,796}
-maze = Maze.new(depth, target)
-puts "Risk: #{maze.risk}"
-start = SearchNode.new(0, 0, "torch")
-target = SearchNode.new(14, 796, "torch")
-puts "Total distance: #{MazeSearch.a_star(start, target, maze)}"
+# puts "--- Day 22: Mode Maze ---"
+# depth = 5355
+# target = {14,796}
+# maze = Maze.new(depth, target)
+# puts "Risk: #{maze.risk}"
+# start = SearchNode.new(0, 0, "torch")
+# target = SearchNode.new(14, 796, "torch")
+# puts "Total distance: #{MazeSearch.a_star(start, target, maze)}"
