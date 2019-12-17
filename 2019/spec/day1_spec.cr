@@ -1,5 +1,5 @@
 require "spec"
-require "../day1.cr"
+require "../days/day1.cr"
 
 describe "fuel_required" do
   it "takes a mass, divides by three, rounds down, and subtracts 2" do
