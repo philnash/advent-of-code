@@ -1,4 +1,4 @@
-require "./day1"
+require "./days/day1"
 
 puts "--- Day 1: The Tyranny of the Rocket Equation ---"
 input = File.read_lines("./day1.txt")
