@@ -2,6 +2,7 @@ require "./days/day1"
 require "./days/day2"
 require "./days/day3"
 require "./days/day4"
+require "./days/day5"
 
 puts "--- Day 1: The Tyranny of the Rocket Equation ---"
 input = File.read_lines("./days/day1.txt")
@@ -25,3 +26,9 @@ puts "--- Day 4: Secure Container ---"
 input = File.read("./days/day4.txt")
 puts "Number of passwords: #{Password.count_passwords(input)}"
 puts "Number of stricter passwords: #{Password.count_passwords_2(input)}"
+
+puts "--- Day 5: Sunny with a Chance of Asteroids ---"
+input = File.read("./days/day5.txt")
+computer = Intcode5.new(input, 1)
+computer.run
+puts computer.output
