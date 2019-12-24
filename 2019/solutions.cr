@@ -3,6 +3,7 @@ require "./days/day2"
 require "./days/day3"
 require "./days/day4"
 require "./days/day5"
+require "./days/day6"
 
 puts "--- Day 1: The Tyranny of the Rocket Equation ---"
 input = File.read_lines("./days/day1.txt")
@@ -33,3 +34,9 @@ computer = Intcode5.new(input, 1)
 puts computer.run.output
 computer = Intcode5.new(input, 5)
 puts computer.run.output
+
+puts "--- Day 6: Universal Orbit Map ---"
+input = File.read_lines("./days/day6.txt")
+orbit_map = OrbitMap.new(input)
+puts "Number of direct and indirect orbits: #{orbit_map.check_sum}"
+puts "Distance between you and san: #{orbit_map.distance_between("YOU", "SAN")}"
