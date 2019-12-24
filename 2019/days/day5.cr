@@ -72,9 +72,61 @@ module Instruction
     def run(pointer, memory, output)
       output = output.dup
       instruction = memory[pointer]
-      output_position = memory[pointer+1]
-      output.push(memory[output_position])
+      result = get_input(instruction, 0, pointer, memory)
+      output.push(result)
       return {pointer+2, memory, output}
+    end
+  end
+
+  class JumpIfTrue < Base
+    def run(pointer, memory)
+      instruction = memory[pointer]
+      parameter1 = get_input(instruction, 0, pointer, memory)
+      parameter2 = get_input(instruction, 1, pointer, memory)
+      if parameter1 != 0
+        pointer = parameter2
+      else
+        pointer = pointer + 3
+      end
+      return pointer 
+    end
+  end
+
+  class JumpIfFalse < Base
+    def run(pointer, memory)
+      instruction = memory[pointer]
+      parameter1 = get_input(instruction, 0, pointer, memory)
+      parameter2 = get_input(instruction, 1, pointer, memory)
+      if parameter1 == 0
+        pointer = parameter2
+      else
+        pointer = pointer + 3
+      end
+      return pointer 
+    end
+  end
+
+  class LessThan < Base
+    def run(pointer, memory)
+      memory = memory.dup
+      instruction = memory[pointer]
+      parameter1 = get_input(instruction, 0, pointer, memory)
+      parameter2 = get_input(instruction, 1, pointer, memory)
+      output = parameter1 < parameter2 ? 1 : 0
+      put_output(instruction, 2, pointer, memory, output)
+      return { pointer + 4, memory }
+    end
+  end
+
+  class Equal < Base
+    def run(pointer, memory)
+      memory = memory.dup
+      instruction = memory[pointer]
+      parameter1 = get_input(instruction, 0, pointer, memory)
+      parameter2 = get_input(instruction, 1, pointer, memory)
+      output = parameter1 == parameter2 ? 1 : 0
+      put_output(instruction, 2, pointer, memory, output)
+      return { pointer + 4, memory }
     end
   end
 end
@@ -109,8 +161,16 @@ class Intcode5
         pointer, @memory = Instruction::Input.new.run(@input, pointer, @memory)
       when 4
         pointer, @memory, @output = Instruction::Output.new.run(pointer, @memory, @output)
+      when 5
+        pointer = Instruction::JumpIfTrue.new.run(pointer, @memory)
+      when 6
+        pointer = Instruction::JumpIfFalse.new.run(pointer, @memory)
+      when 7
+        pointer, @memory = Instruction::LessThan.new.run(pointer, @memory)
+      when 8
+        pointer, @memory = Instruction::Equal.new.run(pointer, @memory)
       else
-        raise "Incorrect opcode"
+        raise "Incorrect opcode #{opcode}"
       end
       opcode = instruction_to_opcode(@memory[pointer])
     end

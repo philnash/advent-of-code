@@ -30,5 +30,6 @@ puts "Number of stricter passwords: #{Password.count_passwords_2(input)}"
 puts "--- Day 5: Sunny with a Chance of Asteroids ---"
 input = File.read("./days/day5.txt")
 computer = Intcode5.new(input, 1)
-computer.run
-puts computer.output
+puts computer.run.output
+computer = Intcode5.new(input, 5)
+puts computer.run.output
