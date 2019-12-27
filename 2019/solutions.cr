@@ -52,5 +52,8 @@ puts "Highest signal to send to the thrusters with feedback: #{max_thruster_inpu
 
 puts "--- Day 8: Space Image Format ---"
 input = File.read("./days/day8.txt")
-checksum = SIF.decode(input, 25, 6).checksum
+sif = SIF.decode(input, 25, 6)
+checksum = sif.checksum
 puts "Checksum for image: #{checksum}"
+puts "Image:"
+sif.print_image
