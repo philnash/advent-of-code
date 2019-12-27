@@ -4,6 +4,7 @@ require "./days/day3"
 require "./days/day4"
 require "./days/day5"
 require "./days/day6"
+require "./days/day7"
 
 puts "--- Day 1: The Tyranny of the Rocket Equation ---"
 input = File.read_lines("./days/day1.txt")
@@ -40,3 +41,10 @@ input = File.read_lines("./days/day6.txt")
 orbit_map = OrbitMap.new(input)
 puts "Number of direct and indirect orbits: #{orbit_map.check_sum}"
 puts "Distance between you and san: #{orbit_map.distance_between("YOU", "SAN")}"
+
+puts "--- Day 7: Amplification Circuit ---"
+input = File.read("./days/day7.txt")
+max_thruster_input, _ = AmplifierGroup.new(5).find_max_output(input)
+puts "Highest signal to send to the thrusters: #{max_thruster_input}"
+max_thruster_input_with_feedback, _ = AmplifierGroup.new(5).find_max_output_for_feedback_loop(input)
+puts "Highest signal to send to the thrusters with feedback: #{max_thruster_input_with_feedback}"
