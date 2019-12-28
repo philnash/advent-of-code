@@ -6,6 +6,7 @@ require "./days/day5"
 require "./days/day6"
 require "./days/day7"
 require "./days/day8"
+require "./days/day9"
 
 puts "--- Day 1: The Tyranny of the Rocket Equation ---"
 input = File.read_lines("./days/day1.txt")
@@ -57,3 +58,10 @@ checksum = sif.checksum
 puts "Checksum for image: #{checksum}"
 puts "Image:"
 sif.print_image
+
+puts "--- Day 9: Sensor Boost ---"
+input = File.read("./days/day9.txt")
+computer = Intcode9::Computer.new(input)
+puts computer.run([1_i64]).output
+computer = Intcode9::Computer.new(input)
+puts computer.run([2_i64]).output
