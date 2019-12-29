@@ -117,5 +117,16 @@ describe AsteroidMap do
       {asteroid.x, asteroid.y}.should eq({11,13})
       count.should eq(210)
     end
+
+    it "finds the order of vaporization" do
+      am = AsteroidMap.parse(map5)
+      vaporization_order = am.vaporize_asteroids
+      {vaporization_order[0].x, vaporization_order[0].y}.should eq({11, 12})
+      {vaporization_order[1].x, vaporization_order[1].y}.should eq({12, 1})
+      {vaporization_order[2].x, vaporization_order[2].y}.should eq({12, 2})
+      {vaporization_order[199].x, vaporization_order[199].y}.should eq({8, 2})
+      v = am.vaporized_at(201)
+      {v.x, v.y}.should eq({10,9})
+    end
   end
 end

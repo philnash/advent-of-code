@@ -72,3 +72,5 @@ input = File.read("./days/day10.txt")
 am = AsteroidMap.parse(input)
 asteroid, count = am.most_asteroids_visible
 puts "The best station is asteroid #{asteroid.x}, #{asteroid.y} with #{count} asteroids visible"
+vaporized_200 = am.vaporized_at(200)
+puts "The 200th vaporized asteroid is at #{vaporized_200.x}, #{vaporized_200.y}"
