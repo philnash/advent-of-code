@@ -1,4 +1,4 @@
-class Intcode
+class Intcode2
   getter memory : Array(Int32)
   def initialize(@program : String)
     @memory = @program.split(',').map { |s| s.to_i }

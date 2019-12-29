@@ -18,7 +18,7 @@ puts "Total fuel required including fuel for fuel is #{total_fuel}"
 
 puts "--- Day 2: 1202 Program Alarm ---"
 input = File.read("./days/day2.txt")
-computer = Intcode.new(input).initialize_memory(12,2)
+computer = Intcode2.new(input).initialize_memory(12,2)
 puts "Position 0 is #{computer.run.memory.first}"
 puts "Noun and verb are: #{noun_and_verb_for_result(computer, 19690720)}"
 
