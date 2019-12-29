@@ -7,6 +7,7 @@ require "./days/day6"
 require "./days/day7"
 require "./days/day8"
 require "./days/day9"
+require "./days/day10"
 
 puts "--- Day 1: The Tyranny of the Rocket Equation ---"
 input = File.read_lines("./days/day1.txt")
@@ -65,3 +66,9 @@ computer = Intcode9::Computer.new(input)
 puts computer.run([1_i64]).output
 computer = Intcode9::Computer.new(input)
 puts computer.run([2_i64]).output
+
+puts "--- Day 10: Monitoring Station ---"
+input = File.read("./days/day10.txt")
+am = AsteroidMap.parse(input)
+asteroid, count = am.most_asteroids_visible
+puts "The best station is asteroid #{asteroid.x}, #{asteroid.y} with #{count} asteroids visible"
