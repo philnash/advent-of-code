@@ -8,6 +8,7 @@ require "./days/day7"
 require "./days/day8"
 require "./days/day9"
 require "./days/day10"
+require "./days/day11"
 
 puts "--- Day 1: The Tyranny of the Rocket Equation ---"
 input = File.read_lines("./days/day1.txt")
@@ -74,3 +75,10 @@ asteroid, count = am.most_asteroids_visible
 puts "The best station is asteroid #{asteroid.x}, #{asteroid.y} with #{count} asteroids visible"
 vaporized_200 = am.vaporized_at(200)
 puts "The 200th vaporized asteroid is at #{vaporized_200.x}, #{vaporized_200.y}"
+
+puts "--- Day 11: Space Police ---"
+input = File.read("./days/day11.txt")
+bot = EmergencyHullPaintingRobot.new(input)
+puts bot.run.panels.size
+bot = EmergencyHullPaintingRobot.new(input, [Panel.new(0, 0, Panel::Colour::White)])
+bot.run.render
