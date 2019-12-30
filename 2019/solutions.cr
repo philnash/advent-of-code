@@ -9,6 +9,7 @@ require "./days/day8"
 require "./days/day9"
 require "./days/day10"
 require "./days/day11"
+require "./days/day12"
 
 puts "--- Day 1: The Tyranny of the Rocket Equation ---"
 input = File.read_lines("./days/day1.txt")
@@ -82,3 +83,11 @@ bot = EmergencyHullPaintingRobot.new(input)
 puts bot.run.panels.size
 bot = EmergencyHullPaintingRobot.new(input, [Panel.new(0, 0, Panel::Colour::White)])
 bot.run.render
+
+puts "--- Day 12: The N-Body Problem ---"
+input = File.read_lines("./days/day12.txt")
+moon_system = MoonSystem.new(input.map { |i| MoonSystem::Moon.parse(i) })
+moon_system.step(1000)
+puts "Total energy: #{moon_system.total_energy}"
+moon_system = MoonSystem.new(input.map { |i| MoonSystem::Moon.parse(i) })
+puts "Size of period: #{moon_system.find_system_period}"
