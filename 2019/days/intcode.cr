@@ -209,6 +209,12 @@ module Intcode
       self
     end
 
+    def output
+      output = @output.clone
+      @output = [] of Int64
+      return output
+    end
+
     def to_s
       @memory.join(",")
     end

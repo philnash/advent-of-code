@@ -10,6 +10,7 @@ require "./days/day9"
 require "./days/day10"
 require "./days/day11"
 require "./days/day12"
+require "./days/day13"
 
 puts "--- Day 1: The Tyranny of the Rocket Equation ---"
 input = File.read_lines("./days/day1.txt")
@@ -91,3 +92,12 @@ moon_system.step(1000)
 puts "Total energy: #{moon_system.total_energy}"
 moon_system = MoonSystem.new(input.map { |i| MoonSystem::Moon.parse(i) })
 puts "Size of period: #{moon_system.find_system_period}"
+
+puts "--- Day 13: Care Package ---"
+input = File.read("./days/day13.txt")
+game = Game.new(input)
+game.run
+puts "Blocks: #{game.tiles.values.select { |t| t.type == Game::TileType::Block }.size}"
+game = Game.new(input, true)
+puts "Final score: #{game.play}"
+
