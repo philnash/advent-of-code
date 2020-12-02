@@ -8,5 +8,5 @@ puts "The multiple of the group of 3 that sum to 2020 is: #{expenses.multiple(3)
 
 puts "--- Day 2: Password Philosophy ---"
 input = File.read_lines("./days/day2.txt")
-puts "The sled password policy has #{Policies.check(input, SledPolicy)} valid passwords"
-puts "The toboggan password policy has #{Policies.check(input, TobogganPolicy)} valid passwords"
+puts "The sled password policy has #{Passwords.check(input, SledPolicy)} valid passwords"
+puts "The toboggan password policy has #{Passwords.check(input, TobogganPolicy)} valid passwords"

@@ -5,7 +5,7 @@ input = ["1-3 a: abcde",
          "1-3 b: cdefg",
          "2-9 c: ccccccccc"]
 
-describe "Password Policies" do
+describe "Passwords" do
   it "recognises valid sled passwords" do
     password = "abcde"
     policy = SledPolicy.new(1, 3, 'c')
@@ -37,10 +37,10 @@ describe "Password Policies" do
   end
 
   it "should count valid sled passwords" do
-    Policies.check(input, SledPolicy).should eq(2)
+    Passwords.check(input, SledPolicy).should eq(2)
   end
 
   it "should count valid toboggan passwords" do
-    Policies.check(input, TobogganPolicy).should eq(1)
+    Passwords.check(input, TobogganPolicy).should eq(1)
   end
 end

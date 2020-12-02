@@ -1,4 +1,4 @@
-class Policies
+class Passwords
   def self.check(input, policy_class)
     input.map do |line|
       match_data = line.match(/^(?<min>\d+)-(?<max>\d+) (?<char>[a-z]): (?<password>[a-z]+)$/)
@@ -9,13 +9,15 @@ class Policies
   end
 end
 
-class Policy
+abstract class Policy
   getter min : Int32
   getter max : Int32
   getter char : Char
 
   def initialize(@min, @max, @char)
   end
+
+  abstract def valid?(password : String)
 end
 
 class SledPolicy < Policy
