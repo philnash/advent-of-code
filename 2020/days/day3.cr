@@ -1,12 +1,12 @@
 class TobogganTrajectory
+  getter width : Int32
   getter height : Int32
   getter map : Array(Array(String))
-  getter width : Int32
 
   def initialize(lines)
     @map = lines.map { |line| line.split("") }
     @width = @map.first.size
-    @height = @map.size - 1
+    @height = @map.size
   end
 
   def [](x, y)
@@ -15,13 +15,13 @@ class TobogganTrajectory
   end
 
   def traverse(right, down)
-    x = 0
-    y = 0
+    x = right
+    y = down
     trees = 0
     while y < height
+      trees += 1 if self[x, y] == "#"
       x = x + right
       y = y + down
-      trees += 1 if self[x, y] == "#"
     end
     trees
   end

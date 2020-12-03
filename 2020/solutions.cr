@@ -14,5 +14,5 @@ puts "The toboggan password policy has #{Passwords.check(input, TobogganPolicy)}
 puts "--- Day 3: Toboggan Trajectory ---"
 input = File.read_lines("./days/day3.txt")
 map = TobogganTrajectory.new(input)
-puts map.traverse(3, 1)
-puts map.test_paths([{1, 1}, {3, 1}, {5, 1}, {7, 1}, {1, 2}])
+puts "You would encounter #{map.traverse(3, 1)} trees in part 1"
+puts "The product of the trees encountered over different paths is #{map.test_paths([{1, 1}, {3, 1}, {5, 1}, {7, 1}, {1, 2}])}"
