@@ -3,18 +3,17 @@ class TobogganTrajectory
   getter height : Int32
   getter map : Array(Array(String))
 
-  def initialize(lines)
+  def initialize(lines : Array(String))
     @map = lines.map { |line| line.split("") }
     @width = @map.first.size
     @height = @map.size
   end
 
   def [](x, y)
-    x = x % @width
-    return @map[y][x]
+    @map[y][x % @width]
   end
 
-  def traverse(right, down)
+  def traverse(right : Int32, down : Int32)
     x = right
     y = down
     trees = 0
@@ -26,7 +25,7 @@ class TobogganTrajectory
     trees
   end
 
-  def test_paths(vectors)
+  def test_paths(vectors : Array(Tuple(Int32, Int32))) : Int64
     vectors.map { |vector| self.traverse(*vector).to_i64 }.product
   end
 end
