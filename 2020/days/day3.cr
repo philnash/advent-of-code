@@ -9,8 +9,8 @@ class TobogganTrajectory
     @height = @map.size
   end
 
-  def [](x, y)
-    @map[y][x % @width]
+  def tree?(x, y)
+    @map[y][x % @width] == "#"
   end
 
   def traverse(right : Int32, down : Int32)
@@ -18,7 +18,7 @@ class TobogganTrajectory
     y = down
     trees = 0
     while y < height
-      trees += 1 if self[x, y] == "#"
+      trees += 1 if tree?(x, y)
       x = x + right
       y = y + down
     end
