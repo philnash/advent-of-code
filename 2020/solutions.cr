@@ -17,7 +17,13 @@ map = TobogganTrajectory.new(input)
 puts "You would encounter #{map.traverse(3, 1)} trees in part 1"
 puts "The product of the trees encountered over different paths is #{map.test_paths([{1, 1}, {3, 1}, {5, 1}, {7, 1}, {1, 2}])}"
 
-puts "--- Day 4: ---"
+puts "--- Day 4: Passport Processing ---"
 input = File.read("./days/day4.txt")
-puts PassportValidator.valid_passports(input)
-puts PassportValidator.valid_passports(input, true)
+puts "There are #{PassportValidator.valid_passports(input)} valid passports"
+puts "There are #{PassportValidator.valid_passports(input, true)} valid passports with valid data"
+
+puts "--- Day 5: Binary Boarding ---"
+input = File.read_lines("./days/day5.txt")
+seats = Seats.new(input)
+puts "The highest seat id is #{seats.highest_id}"
+puts "My seat is #{seats.missing_seat}"
