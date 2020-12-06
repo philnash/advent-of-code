@@ -27,3 +27,8 @@ input = File.read_lines("./days/day5.txt")
 seats = Seats.new(input)
 puts "The highest seat id is #{seats.highest_id}"
 puts "My seat is #{seats.missing_seat}"
+
+puts "--- Day 6: ---"
+input = File.read("./days/day6.txt")
+puts FamilyGroup.any_yes(input)
+puts FamilyGroup.every_yes(input)
