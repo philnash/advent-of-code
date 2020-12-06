@@ -3,7 +3,7 @@ class Expenses
   end
 
   def sum_to_2020(count = 2)
-    pair = @input.combinations(count).each do |items|
+    @input.combinations(count).each do |items|
       break items if items.sum == 2020
     end || [] of Int32
   end
