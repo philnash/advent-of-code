@@ -28,7 +28,7 @@ seats = Seats.new(input)
 puts "The highest seat id is #{seats.highest_id}"
 puts "My seat is #{seats.missing_seat}"
 
-puts "--- Day 6: ---"
+puts "--- Day 6: Custom Customs ---"
 input = File.read("./days/day6.txt")
-puts FamilyGroup.any_yes(input)
-puts FamilyGroup.every_yes(input)
+puts "The sum of questions where anyone answered 'yes' is #{FamilyGroup.any_yes(input)}"
+puts "The sum of questions where everyone answered 'yes' is #{FamilyGroup.every_yes(input)}"
