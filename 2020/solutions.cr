@@ -32,3 +32,10 @@ puts "--- Day 6: Custom Customs ---"
 input = File.read("./days/day6.txt")
 puts "The sum of questions where anyone answered 'yes' is #{FamilyGroup.any_yes(input)}"
 puts "The sum of questions where everyone answered 'yes' is #{FamilyGroup.every_yes(input)}"
+
+puts "--- Day 7: Handy Haversacks ---"
+input = File.read_lines("./days/day7.txt")
+collection = BagCollection.parse(input)
+shiny_gold = collection.find("shiny gold")
+puts "The number of bag colours that can contain a shiny gold bag is #{shiny_gold.containers}"
+puts "The number of bags required inside a shiny gold bag is #{shiny_gold.all_children}"
