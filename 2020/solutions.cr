@@ -40,8 +40,8 @@ shiny_gold = collection.find("shiny gold")
 puts "The number of bag colours that can contain a shiny gold bag is #{shiny_gold.containers}"
 puts "The number of bags required inside a shiny gold bag is #{shiny_gold.all_children}"
 
-puts "--- Day 8:  ---"
+puts "--- Day 8: Handheld Halting ---"
 input = File.read_lines("./days/day8.txt")
 console = Console.new
-puts console.process_instructions(input)[0]
-puts Console.find_incorrect_instruction(input)
+puts "The accumulator before the program loops is: #{console.process_instructions(input)[0]}"
+puts "The accumulator for the correct program is: #{console.find_incorrect_instruction(input)}"
