@@ -2,17 +2,17 @@ class Xmas
   def initialize(@numbers : Array(Int64), @preamble_length = 25)
   end
 
-  def valid?(number, last_25)
-    last_25.combinations(2).map(&.sum).includes?(number)
+  def valid?(number, previous_numbers)
+    previous_numbers.combinations(2).map(&.sum).includes?(number)
   end
 
   def find_invalid_input
-    last_25 = @numbers.first(@preamble_length)
+    previous_numbers = @numbers.first(@preamble_length)
     remaining = @numbers.skip(@preamble_length)
-    return remaining.each do |number|
-      break number unless valid?(number, last_25)
-      last_25.shift
-      last_25 << number
+    remaining.each do |number|
+      break number unless valid?(number, previous_numbers)
+      previous_numbers.shift
+      previous_numbers << number
     end
   end
 

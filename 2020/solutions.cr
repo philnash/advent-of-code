@@ -49,5 +49,5 @@ puts "The accumulator for the correct program is: #{console.find_incorrect_instr
 puts "--- Day 9:  ---"
 input = File.read_lines("./days/day9.txt").map(&.to_i64)
 xmas = Xmas.new(input)
-puts xmas.find_invalid_input
-puts xmas.find_encryption_weakness
+puts "The number that is not a sum is: #{xmas.find_invalid_input}"
+puts "The encryption weakness is #{xmas.find_encryption_weakness}"
