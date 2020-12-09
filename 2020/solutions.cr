@@ -45,3 +45,9 @@ input = File.read_lines("./days/day8.txt")
 console = Console.new
 puts "The accumulator before the program loops is: #{console.process_instructions(input)[0]}"
 puts "The accumulator for the correct program is: #{console.find_incorrect_instruction(input)}"
+
+puts "--- Day 9:  ---"
+input = File.read_lines("./days/day9.txt").map(&.to_i64)
+xmas = Xmas.new(input)
+puts xmas.find_invalid_input
+puts xmas.find_encryption_weakness
