@@ -46,8 +46,14 @@ console = Console.new
 puts "The accumulator before the program loops is: #{console.process_instructions(input)[0]}"
 puts "The accumulator for the correct program is: #{console.find_incorrect_instruction(input)}"
 
-puts "--- Day 9:  ---"
+puts "--- Day 9: Encoding Error ---"
 input = File.read_lines("./days/day9.txt").map(&.to_i64)
 xmas = Xmas.new(input)
 puts "The number that is not a sum is: #{xmas.find_invalid_input}"
 puts "The encryption weakness is #{xmas.find_encryption_weakness}"
+
+puts "--- Day 10: Adapter Array ---"
+input = File.read_lines("./days/day10.txt").map(&.to_i)
+adapters = JoltAdapters.new(input)
+puts "The multiple of the differences is: #{adapters.difference_multiple}"
+puts "The total number of possible connections is: #{adapters.all_connections}"
