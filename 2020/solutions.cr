@@ -57,3 +57,13 @@ input = File.read_lines("./days/day10.txt").map(&.to_i)
 adapters = JoltAdapters.new(input)
 puts "The multiple of the differences is: #{adapters.difference_multiple}"
 puts "The total number of possible connections is: #{adapters.all_connections}"
+
+puts "--- Day 11: Seating System ---"
+input = File.read("./days/day11.txt")
+seats = WaitingSeats.new(input)
+seats.cycle_part_1_until_stable
+puts "There are #{seats.occupied_seats} occupied seats when stable under part 1 rules"
+
+seats = WaitingSeats.new(input)
+seats.cycle_part_2_until_stable
+puts "There are #{seats.occupied_seats} occupied seats when stable under part 2 rules"
