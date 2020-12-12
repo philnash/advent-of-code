@@ -67,3 +67,9 @@ puts "There are #{seats.occupied_seats} occupied seats when stable under part 1 
 seats = WaitingSeats.new(input)
 seats.cycle_part_2_until_stable
 puts "There are #{seats.occupied_seats} occupied seats when stable under part 2 rules"
+
+puts "--- Day 12: Rain Risk "
+input = File.read("./days/day12.txt")
+ship = Ship.new
+puts "The ship travelled #{ship.travel(input)} by directions"
+puts "Ths ship travelled #{ship.waypoint_travel(input)} by waypoint"
