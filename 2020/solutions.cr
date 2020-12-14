@@ -73,3 +73,9 @@ input = File.read("./days/day12.txt")
 ship = Ship.new
 puts "The ship travelled #{ship.travel(input)} by directions"
 puts "Ths ship travelled #{ship.waypoint_travel(input)} by waypoint"
+
+puts "--- Day 13:  "
+input = File.read("./days/day13.txt")
+timetable = Timetable.parse_timetable(input)
+puts timetable.earliest_bus
+puts Timetable.win_gold_coin(input.split("\n")[1])
