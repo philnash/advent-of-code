@@ -68,14 +68,19 @@ seats = WaitingSeats.new(input)
 seats.cycle_part_2_until_stable
 puts "There are #{seats.occupied_seats} occupied seats when stable under part 2 rules"
 
-puts "--- Day 12: Rain Risk "
+puts "--- Day 12: Rain Risk ---"
 input = File.read("./days/day12.txt")
 ship = Ship.new
 puts "The ship travelled #{ship.travel(input)} by directions"
 puts "Ths ship travelled #{ship.waypoint_travel(input)} by waypoint"
 
-puts "--- Day 13: Shuttle Search "
+puts "--- Day 13: Shuttle Search ---"
 input = File.read("./days/day13.txt")
 timetable = Timetable.parse_timetable(input)
 puts "The earliest bus after the time is: #{timetable.earliest_bus}"
 puts "The time at which the buses take off in order is: #{Timetable.win_gold_coin(input.split("\n")[1])}"
+
+puts "--- Day 14: Docking Data ---"
+input = File.read_lines("./days/day14.txt")
+puts "V1 memory sum: #{DockingProgram::V1.run_program(input)}"
+puts "V2 memory sum: #{DockingProgram::V2.run_program(input)}"
