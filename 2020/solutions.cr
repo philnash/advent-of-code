@@ -84,3 +84,9 @@ puts "--- Day 14: Docking Data ---"
 input = File.read_lines("./days/day14.txt")
 puts "V1 memory sum: #{DockingProgram::V1.run_program(input)}"
 puts "V2 memory sum: #{DockingProgram::V2.run_program(input)}"
+
+puts "--- Day 15: Rambunctious Recitation ---"
+input = File.read("./days/day15.txt")
+game = MemoryGame.new(input.split(",").map(&.to_i))
+puts "The 2020th number is #{game.turn(2020)}"
+puts "The 30000000th number is #{game.turn(30000000)}"
