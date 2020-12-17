@@ -104,7 +104,7 @@ puts "--- Day 17: Conway Cubes ---"
 input = File.read("./days/day17.txt")
 cubes = ConwayCubes.new(input)
 6.times { cubes.cycle }
-puts cubes.count
+puts "There are #{cubes.count} active 3D cubes"
 cubes = ConwayCubes4D.new(input)
 6.times { cubes.cycle }
-puts cubes.count
+puts "There are #{cubes.count} active 4D cubes"
