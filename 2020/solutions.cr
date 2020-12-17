@@ -99,3 +99,12 @@ my_ticket = Ticket.parse_my_ticket(input)
 puts "The sum of the invalid tickets is: #{Ticket.invalid_tickets_sum(nearby_tickets)}"
 labels = Ticket.labels(nearby_tickets, rules)
 puts "The product of the departure values is: #{Ticket.departure_product(my_ticket, labels)}"
+
+puts "--- Day 17: Conway Cubes ---"
+input = File.read("./days/day17.txt")
+cubes = ConwayCubes.new(input)
+6.times { cubes.cycle }
+puts cubes.count
+cubes = ConwayCubes4D.new(input)
+6.times { cubes.cycle }
+puts cubes.count
