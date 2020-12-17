@@ -90,3 +90,12 @@ input = File.read("./days/day15.txt")
 game = MemoryGame.new(input.split(",").map(&.to_i))
 puts "The 2020th number is #{game.turn(2020)}"
 puts "The 30000000th number is #{game.turn(30000000)}"
+
+puts "--- Day 16: Ticket Translation ---"
+input = File.read("./days/day16.txt")
+rules = Ticket.parse_rules(input)
+nearby_tickets = Ticket.parse_nearby_tickets(input, rules)
+my_ticket = Ticket.parse_my_ticket(input)
+puts "The sum of the invalid tickets is: #{Ticket.invalid_tickets_sum(nearby_tickets)}"
+labels = Ticket.labels(nearby_tickets, rules)
+puts "The product of the departure values is: #{Ticket.departure_product(my_ticket, labels)}"
