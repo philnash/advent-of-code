@@ -66,9 +66,8 @@ class Ticket
   end
 
   def possible_label(number, rules)
-    remaining_rules = rules.compact_map do |label, ranges|
+    rules.compact_map do |label, ranges|
       label if ranges.any? { |range| range.includes?(number) }
     end
-    remaining_rules
   end
 end
