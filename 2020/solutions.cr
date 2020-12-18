@@ -108,3 +108,8 @@ puts "There are #{cubes.count} active 3D cubes"
 cubes = ConwayCubes4D.new(input)
 6.times { cubes.cycle }
 puts "There are #{cubes.count} active 4D cubes"
+
+puts "--- Day 18: Operation Order ---"
+input = File.read_lines("./days/day18.txt")
+puts "Sum with no precendence: #{input.map { |exp| WrongMaths::V1.calculate(exp) }.reject(Nil).sum}"
+puts "Sum with opposite precedence: #{input.map { |exp| WrongMaths::V2.calculate(exp) }.reject(Nil).sum}"
