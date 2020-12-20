@@ -113,3 +113,10 @@ puts "--- Day 18: Operation Order ---"
 input = File.read_lines("./days/day18.txt")
 puts "Sum with no precendence: #{input.map { |exp| WrongMaths::V1.calculate(exp) }.reject(Nil).sum}"
 puts "Sum with opposite precedence: #{input.map { |exp| WrongMaths::V2.calculate(exp) }.reject(Nil).sum}"
+
+puts "--- Day 19: Monster Messages ---"
+input = File.read("./days/day19.txt").split("\n\n")
+sat = SatelliteRegexes.new(input[0])
+puts input[1].split("\n").count { |str| sat.test(str) }
+sat = SatelliteRegexes.new(input[0], 2)
+puts input[1].split("\n").count { |str| sat.test(str) }
