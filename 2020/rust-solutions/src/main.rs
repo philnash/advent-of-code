@@ -2,6 +2,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 mod utils;
 use std::path::Path;
 
@@ -43,5 +44,15 @@ fn main() {
         "## Day 4 ##\nPart 1: {:?}\nPart 2: {:?}",
         day4::validate_passports(input, false),
         day4::validate_passports(input, true)
-    )
+    );
+
+    // Day 5
+    let path = Path::new("../days/day5.txt");
+    let strings = utils::read_string_lines(path);
+
+    println!(
+        "## Day 5 ##\nPart 1: {:?}\nPart 2: {:?}",
+        day5::highest_seat_id(&strings),
+        day5::missing_seat(&strings)
+    );
 }
