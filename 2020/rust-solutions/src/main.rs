@@ -1,6 +1,7 @@
 mod day1;
 mod day2;
 mod day3;
+mod day4;
 mod utils;
 use std::path::Path;
 
@@ -29,8 +30,18 @@ fn main() {
     let strings = utils::read_string_lines(path);
     let toboggan_trajectory = day3::TobogganTrajectory::new(strings);
     println!(
-        "## Day 2 ##\nPart 1: {:?}\nPart 2: {}",
+        "## Day 3 ##\nPart 1: {:?}\nPart 2: {}",
         toboggan_trajectory.traverse(3, 1),
         toboggan_trajectory.test_paths(vec![(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)])
     );
+
+    // Day 4
+    let path = Path::new("../days/day4.txt");
+    let file_contents = utils::read_file(path);
+    let input = file_contents.as_str();
+    println!(
+        "## Day 4 ##\nPart 1: {:?}\nPart 2: {:?}",
+        day4::validate_passports(input, false),
+        day4::validate_passports(input, true)
+    )
 }

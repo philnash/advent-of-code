@@ -18,3 +18,7 @@ pub fn read_string_lines(file_name: &Path) -> Vec<String> {
     .map(|s| String::from(s))
     .collect::<Vec<String>>()
 }
+
+pub fn read_file(file_name: &Path) -> String {
+  std::fs::read_to_string(file_name).expect("file not found!")
+}
