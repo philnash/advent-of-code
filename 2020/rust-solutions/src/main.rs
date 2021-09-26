@@ -3,6 +3,7 @@ mod day2;
 mod day3;
 mod day4;
 mod day5;
+mod day6;
 mod utils;
 use std::path::Path;
 
@@ -55,4 +56,13 @@ fn main() {
         day5::highest_seat_id(&strings),
         day5::missing_seat(&strings)
     );
+
+    // Day 6
+    let path = Path::new("../days/day6.txt");
+    let file_contents = utils::read_file(path);
+    println!(
+        "## Day 6 ##\nPart 1: {:?}\nPart 2: {:?}",
+        day6::answered_yes_to_any_question(&file_contents),
+        day6::answered_yes_to_all_questions(&file_contents)
+    )
 }
