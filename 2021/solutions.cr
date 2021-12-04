@@ -20,3 +20,9 @@ input = File.read_lines("./days/day3.txt")
 pc = PowerConsumption.new(input)
 puts "The combined gamma and epsilon rates are: #{pc.rates}"
 puts "The life support rating is #{pc.life_support_rating}"
+
+puts "--- Day 4:  ---"
+input = File.read("./days/day4.txt")
+game = Bingo::Game.new(input)
+puts "The victorious game score is: #{game.play}"
+puts "The last board to win score is: #{game.play_until_last_board_wins}"
