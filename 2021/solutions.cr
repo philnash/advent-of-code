@@ -14,3 +14,9 @@ puts "The position result it: #{sub.horizontal * sub.depth}"
 sub = DiveWithAim.new
 sub.apply_instructions(input)
 puts "The position result it: #{sub.horizontal * sub.depth}"
+
+puts "--- Day 3: Dive! ---"
+input = File.read_lines("./days/day3.txt")
+pc = PowerConsumption.new(input)
+puts "The combined gamma and epsilon rates are: #{pc.rates}"
+puts "The life support rating is #{pc.life_support_rating}"
