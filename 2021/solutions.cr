@@ -26,3 +26,9 @@ input = File.read("./days/day4.txt")
 game = Bingo::Game.new(input)
 puts "The victorious game score is: #{game.play}"
 puts "The last board to win score is: #{game.play_until_last_board_wins}"
+
+puts "--- Day 5: ---"
+input = File.read_lines("./days/day5.txt")
+vents = Hydrothermal::Vents.new(input)
+puts "The number of overlaps of verticals and horizontals is: #{vents.count_overlaps}"
+puts "The number of overlaps of all lines is: #{vents.count_overlaps(true)}"
