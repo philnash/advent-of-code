@@ -20,26 +20,12 @@ module Hydrothermal
         @finish = a.x < b.x ? b : a
       end
     end
-
-    def includes?(x : Int32, y : Int32)
-      if @start.x == x && @start.y == y || @finish.x == x && @finish.y == y
-        return true
-      elsif @start.x == @finish.x
-        return x == @start.x && y >= @start.y && y <= @finish.y
-      elsif @start.y == @finish.y
-        return y == @start.y && x >= @start.x && x <= @finish.x
-      else
-        slope = (@start.y - @finish.y) / (@start.x - @finish.x)
-        in_bound = x >= @start.x && x <= @finish.x && (slope < 0 ? y <= @start.y && y >= @finish.y : y >= @start.y && y <= @finish.y)
-        return ((@start.y - y) / (@start.x - x) == slope) && in_bound
-      end
-    end
   end
 
   class Vents
-    getter lines : Array(Line)
     @width : Int32
     @height : Int32
+    @lines : Array(Line)
 
     def initialize(input : Array(String))
       @lines = input.map do |coords|
@@ -53,14 +39,33 @@ module Hydrothermal
     end
 
     def count_overlaps(include_diagonals = false)
+      map = (0..@height).to_a.map { Array(Int32).new(@width) { 0 } }
       lines = include_diagonals ? @lines : @lines.select { |line| line.start.x == line.finish.x || line.start.y == line.finish.y }
-      overlaps = 0
-      @height.times do |row|
-        @width.times do |col|
-          overlaps += 1 if lines.count { |line| line.includes?(col, row) } > 1
+      lines.each do |line|
+        if line.start.x == line.finish.x
+          curr_y = line.start.y
+          while curr_y < line.finish.y + 1
+            map[line.start.x][curr_y] += 1
+            curr_y += 1
+          end
+        elsif line.start.y == line.finish.y
+          curr_x = line.start.x
+          while curr_x < line.finish.x + 1
+            map[curr_x][line.start.y] += 1
+            curr_x += 1
+          end
+        else
+          slope = (line.start.y - line.finish.y) / (line.start.x - line.finish.x)
+          curr_x = line.start.x
+          curr_y = line.start.y
+          while curr_x != line.finish.x && curr_y != line.finish.y
+            map[curr_x][curr_y] += 1
+            curr_x += 1
+            curr_y += slope > 0 ? 1 : -1
+          end
         end
       end
-      overlaps
+      map.flatten.count { |i| i > 1 }
     end
   end
 end
