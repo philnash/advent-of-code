@@ -38,3 +38,8 @@ puts "--- Day 6: Lanternfish ---"
 input = File.read("./days/day6.txt")
 puts "The number of Lanternfish after 80 days is: #{School.new(input).add_days(80)}"
 puts "The number of Lanternfish after 256 days is: #{School.new(input).add_days(256)}"
+
+puts "Day 7: The Treachery of Whales ---"
+input = File.read("./days/day7.txt")
+puts "The fuel the crabs must use at a constant rate is: #{CrabSubmarines::ConstantFuelCost.new(input).fuel}"
+puts "The fuel the crabs must use at an increasing rate is: #{CrabSubmarines::IncreasingFuelCost.new(input).fuel}"
