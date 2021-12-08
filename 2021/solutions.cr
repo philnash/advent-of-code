@@ -43,3 +43,8 @@ puts "Day 7: The Treachery of Whales ---"
 input = File.read("./days/day7.txt")
 puts "The fuel the crabs must use at a constant rate is: #{CrabSubmarines::ConstantFuelCost.new(input).fuel}"
 puts "The fuel the crabs must use at an increasing rate is: #{CrabSubmarines::IncreasingFuelCost.new(input).fuel}"
+
+puts "Day 8: Seven Segment Search ---"
+input = File.read_lines("./days/day8.txt")
+puts "The number of ones, fours, sevens and eights is: #{SegmentSearch.unique_output_segment_count(input)}"
+puts "The combined total of the outputs is: #{SegmentSearch.sum_outputs(input)}"
