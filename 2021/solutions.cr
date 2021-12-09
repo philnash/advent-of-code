@@ -48,3 +48,9 @@ puts "Day 8: Seven Segment Search ---"
 input = File.read_lines("./days/day8.txt")
 puts "The number of ones, fours, sevens and eights is: #{SegmentSearch.unique_output_segment_count(input)}"
 puts "The combined total of the outputs is: #{SegmentSearch.sum_outputs(input)}"
+
+puts "Day 9: Smoke Basin ---"
+input = File.read_lines("./days/day9.txt")
+height_map = HeightMap.new(input)
+puts "The total risk level is: #{height_map.risk_level}"
+puts "The product of the largest three basins is: #{height_map.top_three_basins_product}"
