@@ -54,3 +54,8 @@ input = File.read_lines("./days/day9.txt")
 height_map = HeightMap.new(input)
 puts "The total risk level is: #{height_map.risk_level}"
 puts "The product of the largest three basins is: #{height_map.top_three_basins_product}"
+
+puts "Day 10:  ---"
+input = File.read_lines("./days/day10.txt")
+puts SyntaxChecker.score_errors(input)
+puts SyntaxChecker.score_completions(input)
