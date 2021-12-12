@@ -65,3 +65,5 @@ input = File.read_lines("./days/day11.txt").map { |row| row.split("").map(&.to_i
 grid = OctopusGrid.new(input)
 puts "The number of octopus flashes after 100 steps is: #{grid.step(100)}"
 puts "The number of steps it takes to all flash at the same time is: #{100 + grid.step_until_synchronised}"
+
+puts "--- Day 12: Passage Pathing ---"
