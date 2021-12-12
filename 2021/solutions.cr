@@ -39,23 +39,29 @@ input = File.read("./days/day6.txt")
 puts "The number of Lanternfish after 80 days is: #{School.new(input).add_days(80)}"
 puts "The number of Lanternfish after 256 days is: #{School.new(input).add_days(256)}"
 
-puts "Day 7: The Treachery of Whales ---"
+puts "--- Day 7: The Treachery of Whales ---"
 input = File.read("./days/day7.txt")
 puts "The fuel the crabs must use at a constant rate is: #{CrabSubmarines::ConstantFuelCost.new(input).fuel}"
 puts "The fuel the crabs must use at an increasing rate is: #{CrabSubmarines::IncreasingFuelCost.new(input).fuel}"
 
-puts "Day 8: Seven Segment Search ---"
+puts "--- Day 8: Seven Segment Search ---"
 input = File.read_lines("./days/day8.txt")
 puts "The number of ones, fours, sevens and eights is: #{SegmentSearch.unique_output_segment_count(input)}"
 puts "The combined total of the outputs is: #{SegmentSearch.sum_outputs(input)}"
 
-puts "Day 9: Smoke Basin ---"
+puts "--- Day 9: Smoke Basin ---"
 input = File.read_lines("./days/day9.txt")
 height_map = HeightMap.new(input)
 puts "The total risk level is: #{height_map.risk_level}"
 puts "The product of the largest three basins is: #{height_map.top_three_basins_product}"
 
-puts "Day 10:  ---"
+puts "--- Day 10: Syntax Scoring ---"
 input = File.read_lines("./days/day10.txt")
-puts SyntaxChecker.score_errors(input)
-puts SyntaxChecker.score_completions(input)
+puts "The total score for syntax errors is: #{SyntaxChecker.score_errors(input)}"
+puts "The middle score for the completed rows is: #{SyntaxChecker.score_completions(input)}"
+
+puts "--- Day 11: Dumbo Octopus ---"
+input = File.read_lines("./days/day11.txt").map { |row| row.split("").map(&.to_i) }
+grid = OctopusGrid.new(input)
+puts "The number of octopus flashes after 100 steps is: #{grid.step(100)}"
+puts "The number of steps it takes to all flash at the same time is: #{100 + grid.step_until_synchronised}"
