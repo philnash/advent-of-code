@@ -67,3 +67,7 @@ puts "The number of octopus flashes after 100 steps is: #{grid.step(100)}"
 puts "The number of steps it takes to all flash at the same time is: #{100 + grid.step_until_synchronised}"
 
 puts "--- Day 12: Passage Pathing ---"
+input = File.read_lines("./days/day12.txt")
+caves = CaveSystem.new(input)
+puts "The number of paths through the system is: #{caves.traverse.size}"
+puts "The number of paths through the system where you can visit one small cave more than once is: #{caves.extended_traverse.size}"
