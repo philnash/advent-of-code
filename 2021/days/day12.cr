@@ -44,6 +44,9 @@ class CaveSystem
     complete_paths
   end
 
+  # I wanted to pass the cave path type to the `traverse` method above, but I
+  # couldn't figure out how to. So this works, but I bet we could do it with
+  # fewer lines.
   def extended_traverse
     paths = Array(ExtendedCavePath).new
     complete_paths = Array(ExtendedCavePath).new
@@ -165,31 +168,3 @@ class Cave
     @connected_caves.push(cave)
   end
 end
-
-input = "fs-end
-he-DX
-fs-he
-start-DX
-pj-DX
-end-zg
-zg-sl
-zg-pj
-pj-he
-RW-he
-fs-DX
-pj-RW
-zg-RW
-start-pj
-he-WI
-zg-he
-pj-fs
-start-RW".split("\n")
-
-caves = CaveSystem.new(input)
-paths = caves.traverse
-puts paths.map(&.to_s).join("\n")
-puts paths.size
-
-paths = caves.extended_traverse
-puts paths.map(&.to_s).join("\n")
-puts paths.size
