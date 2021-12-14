@@ -72,10 +72,16 @@ caves = CaveSystem.new(input)
 puts "The number of paths through the system is: #{caves.traverse.size}"
 puts "The number of paths through the system where you can visit one small cave more than once is: #{caves.extended_traverse.size}"
 
-puts "--- Day 13:  ---"
+puts "--- Day 13: Transparent Origami ---"
 input = File.read("./days/day13.txt")
 code_page = CodePage.new(input)
 code_page.fold
 puts "The number of dots after one fold is: #{code_page.dots.size}"
 code_page.finish_folding
 puts "The code is:\n#{code_page.to_s}"
+
+puts "--- Day 14: Extended Polymerization ---"
+input = File.read("./days/day14.txt")
+polymer = Polymer.new(input)
+puts polymer.step(10)
+puts polymer.step(40)
