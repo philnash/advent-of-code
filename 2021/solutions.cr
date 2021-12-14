@@ -71,3 +71,11 @@ input = File.read_lines("./days/day12.txt")
 caves = CaveSystem.new(input)
 puts "The number of paths through the system is: #{caves.traverse.size}"
 puts "The number of paths through the system where you can visit one small cave more than once is: #{caves.extended_traverse.size}"
+
+puts "--- Day 13:  ---"
+input = File.read("./days/day13.txt")
+code_page = CodePage.new(input)
+code_page.fold
+puts "The number of dots after one fold is: #{code_page.dots.size}"
+code_page.finish_folding
+puts "The code is:\n#{code_page.to_s}"
