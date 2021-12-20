@@ -41,7 +41,7 @@ class CodePage
 
   def [](x, y)
     dot = @dots.find { |d| d.x == x && d.y == y }
-    return dot ? "#" : "."
+    return dot ? "#" : " "
   end
 
   def to_s

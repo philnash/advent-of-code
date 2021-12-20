@@ -83,5 +83,12 @@ puts "The code is:\n#{code_page.to_s}"
 puts "--- Day 14: Extended Polymerization ---"
 input = File.read("./days/day14.txt")
 polymer = Polymer.new(input)
-puts polymer.step(10)
-puts polymer.step(40)
+puts "The difference after 10 steps is: #{polymer.step(10)}"
+puts "The difference after 40 steps is: #{polymer.step(40)}"
+
+puts "--- Day 15: Chiton ---"
+input = File.read("./days/day15.txt")
+ceil = Ceiling.new(input, 1)
+puts "The lowest risk for the small area is: #{ceil.find_path}"
+ceil = Ceiling.new(input, 5)
+puts "The lowest risk for the large area is: #{ceil.find_path}"
