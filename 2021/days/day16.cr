@@ -133,27 +133,3 @@ module Packets
     packets.map(&.version_total).sum
   end
 end
-
-# first = Packets.parse("D2FE28")
-# puts first
-# second = Packets.parse("38006F45291200")
-
-# puts second
-# puts Packets.parse_binary("110100010100101001000100100")
-
-# third = Packets.parse("EE00D40C823060")
-# puts third
-
-puts Packets.version_total(Packets.parse("8A004A801A8002F478"))
-puts Packets.version_total(Packets.parse("620080001611562C8802118E34"))
-puts Packets.version_total(Packets.parse("C0015000016115A2E0802F182340"))
-puts Packets.version_total(Packets.parse("A0016C880162017C3686B18A3D4780"))
-
-puts Packets.parse("C200B40A82").map(&.value)
-puts Packets.parse("04005AC33890").map(&.value)
-puts Packets.parse("880086C3E88112").map(&.value)
-puts Packets.parse("CE00C43D881120").map(&.value)
-puts Packets.parse("D8005AC2A8F0").map(&.value)
-puts Packets.parse("F600BC2D8F").map(&.value)
-puts Packets.parse("9C005AC2F8F0").map(&.value)
-puts Packets.parse("9C0141080250320F1802104A08").map(&.value)
