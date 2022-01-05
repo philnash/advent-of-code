@@ -91,7 +91,7 @@ input = File.read("./days/day15.txt")
 ceil = Ceiling.new(input, 1)
 puts "The lowest risk for the small area is: #{ceil.find_path}"
 ceil = Ceiling.new(input, 5)
-puts "The lowest risk for the large area is: #{ceil.find_path}"
+# puts "The lowest risk for the large area is: #{ceil.find_path}"
 
 puts "--- Day 16: Packet Decoder ---"
 input = File.read("./days/day16.txt")
@@ -104,3 +104,9 @@ input = File.read("./days/day17.txt")
 probe = Probe.new(input)
 puts "The highest y position it reaches is #{probe.find_highest_path}"
 puts "The number of successful velocities is: #{probe.find_all_vectors}"
+
+puts "--- Day 18: Snailfish ---"
+input = File.read_lines("./days/day18.txt")
+numbers = input.map { |s| SnailFish.parse(s) }
+puts SnailFish.sum(numbers).magnitude
+puts input.permutations(2).map { |nums| (SnailFish.parse(nums[0]) + SnailFish.parse(nums[1])).magnitude }.max
