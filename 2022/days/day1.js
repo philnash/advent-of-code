@@ -1,18 +1,14 @@
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
-import { stripIndent } from "common-tags";
+import { loadData } from "../utils.js";
 
 export async function day1() {
-  const day1data = await readFile(join("days", "day1.txt"), {
-    encoding: "utf-8",
-  });
+  const day1data = await loadData(1);
   const mostCalories = elfWithMostCalories(day1data);
   const topThreeMostCalories = topThreeElvesWithMostCalories(day1data);
-  console.log(stripIndent`
+  return `
     --- Day 1: Calorie Counting ---
     The elf with the most has ${mostCalories} calories.
     The top 3 elves with the most have ${topThreeMostCalories} calories.
-  `);
+  `;
 }
 
 export function elfWithMostCalories(calorieData) {

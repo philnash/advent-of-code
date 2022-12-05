@@ -1,3 +1,6 @@
+import { stripIndent } from "common-tags";
 import { day1 } from "./days/day1.js";
 
-await day1();
+Promise.all([day1()]).then((results) => {
+  console.log(results.map((result) => stripIndent`${result}`).join("\n"));
+});
