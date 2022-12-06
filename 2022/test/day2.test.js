@@ -1,5 +1,5 @@
 import { describe, it } from "node:test";
-import assert from "assert";
+import assert from "node:assert";
 import { strategyOne, strategyTwo } from "../days/day2.js";
 
 const testData = `A Y
