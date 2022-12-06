@@ -12,7 +12,6 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^18.11.11",
-    "common-tags": "^1.8.2",
-    "tap-mocha-reporter": "^5.0.3"
+    "common-tags": "^1.8.2"
   }
 }
