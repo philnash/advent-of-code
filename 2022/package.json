@@ -5,7 +5,8 @@
   "main": "solutions.js",
   "type": "module",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "solutions": "node ."
   },
   "keywords": [],
   "author": "Phil Nash <philnash@gmail.com> (https://philna.sh/)",
