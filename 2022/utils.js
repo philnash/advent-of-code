@@ -6,3 +6,11 @@ export async function loadData(day) {
     encoding: "utf-8",
   });
 }
+
+/**
+ *
+ * @param {number[]} array
+ */
+export function sum(array) {
+  return array.reduce((acc, curr) => acc + curr, 0);
+}

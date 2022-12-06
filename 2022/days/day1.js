@@ -1,4 +1,4 @@
-import { loadData } from "../utils.js";
+import { loadData, sum } from "../utils.js";
 
 export async function day1() {
   const day1data = await loadData(1);
@@ -26,10 +26,9 @@ export function topThreeElvesWithMostCalories(calorieData) {
  * @param {string} calorieData
  */
 function dataToCalorieCounts(calorieData) {
-  return calorieData.split("\n\n").map((elf) =>
-    elf
-      .split("\n")
-      .map((calorieCount) => parseInt(calorieCount, 10))
-      .reduce((acc, calories) => acc + calories)
-  );
+  return calorieData
+    .split("\n\n")
+    .map((elf) =>
+      sum(elf.split("\n").map((calorieCount) => parseInt(calorieCount, 10)))
+    );
 }
