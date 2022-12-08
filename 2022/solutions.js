@@ -6,9 +6,17 @@ import { day4 } from "./days/day4.js";
 import { day5 } from "./days/day5.js";
 import { day6 } from "./days/day6.js";
 import { day7 } from "./days/day7.js";
+import { day8 } from "./days/day8.js";
 
-Promise.all([day1(), day2(), day3(), day4(), day5(), day6(), day7()]).then(
-  (results) => {
-    console.log(results.map((result) => stripIndent`${result}`).join("\n"));
-  }
-);
+Promise.all([
+  day1(),
+  day2(),
+  day3(),
+  day4(),
+  day5(),
+  day6(),
+  day7(),
+  day8(),
+]).then((results) => {
+  console.log(results.map((result) => stripIndent`${result}`).join("\n"));
+});
