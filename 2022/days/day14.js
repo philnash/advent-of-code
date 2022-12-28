@@ -2,14 +2,11 @@ import { loadData } from "../utils.js";
 
 export async function day14() {
   const data = await loadData(14);
-  const map = parse(data);
   return `
     --- Day 14: Regolith Reservoir ---
-    Number of sand particles: ${dropSandUntil(map)}
-    Number of sand particles to reach the ceiling: ${
-      dropSandUntil(map, true) + 2
-    }
-  `; // Don't know why it's 2 out...
+    Number of sand particles: ${dropSandUntil(parse(data))}
+    Number of sand particles to reach: ${dropSandUntil(parse(data), true) + 1}
+  `; // Off by one error!
 }
 
 export function parse(data) {
@@ -45,6 +42,7 @@ export function parse(data) {
   const maxX = Math.max(...xs) + 1;
   const minY = 0;
   const maxY = Math.max(...ys);
+
   return { points, minX, maxX, minY, maxY };
 }
 
