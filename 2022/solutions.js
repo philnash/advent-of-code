@@ -13,6 +13,7 @@ import { day11 } from "./days/day11.js";
 import { day12 } from "./days/day12.js";
 import { day13 } from "./days/day13.js";
 import { day14 } from "./days/day14.js";
+import { day15 } from "./days/day15.js";
 
 Promise.all([
   day1(),
@@ -29,6 +30,7 @@ Promise.all([
   day12(),
   day13(),
   day14(),
+  day15(),
 ]).then((results) => {
   console.log(results.map((result) => stripIndent`${result}`).join("\n"));
 });
