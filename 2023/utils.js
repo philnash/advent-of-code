@@ -14,3 +14,7 @@ export async function loadData(day) {
 export function sum(array) {
   return array.reduce((acc, curr) => acc + curr, 0);
 }
+
+export function product(array) {
+  return array.reduce((acc, curr) => acc * curr, 1);
+}
