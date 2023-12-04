@@ -29,3 +29,13 @@ export function sum(array) {
 export function product(array) {
   return array.reduce((acc, curr) => acc * curr, 1);
 }
+
+/**
+ *
+ * @param {any[]} array1
+ * @param {any[]} array2
+ * @returns any[]
+ */
+export function setIntersect(array1, array2) {
+  return array1.filter((item) => array2.includes(item));
+}
