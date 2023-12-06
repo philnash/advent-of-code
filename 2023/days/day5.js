@@ -10,7 +10,7 @@ export async function day5() {
   return `
   --- Day 5: If You Give A Seed A Fertilizer ---
   Lowest location = ${lowestLocation}
-  Real lowest locations = ${lowestOfRanges2(seeds, mappings)}
+  Real lowest locations = ${lowestOfRanges3(seeds, mappings)}
   `;
 }
 
@@ -161,11 +161,11 @@ function lowestOfRanges3(seeds, mappings) {
   return location;
 }
 
-async function race() {
-  const data = await loadData(5);
-  const [seeds, mappings] = parse(data);
-  console.time("location to seed");
-  console.log(lowestOfRanges2(seeds, mappings));
-  console.timeEnd("location to seed");
-}
-await race();
+// async function race() {
+//   const data = await loadData(5);
+//   const [seeds, mappings] = parse(data);
+//   console.time("location to seed");
+//   console.log(lowestOfRanges2(seeds, mappings));
+//   console.timeEnd("location to seed");
+// }
+// await race();
