@@ -5,7 +5,6 @@ export async function day10() {
   const map = parse(data);
   const [x, y] = findStart(map);
   const loop = findLoop(map, [x, y]);
-  console.log(Array.from(loop).length);
   return `
   --- Day 10: Pipe Maze ---
   Furthest from start: ${Array.from(loop).length / 2}
